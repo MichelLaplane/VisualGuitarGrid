@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.IO;
 using System.Collections.Generic;
 using VisualGuitarGrid.Preset;
+using VisualGuitarGrid.Export;
 
 namespace VisualGuitarGrid
 {
@@ -459,7 +460,6 @@ namespace VisualGuitarGrid
       }
     }
 
-    // New: open preset library (sample_presets.json fallback)
     private void btnPresetLibrary_Click(object sender, EventArgs e)
     {
       string defaultPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Presets", "sample_presets.json");
@@ -518,26 +518,35 @@ namespace VisualGuitarGrid
       sfd.Filter = "SVG Image|*.svg";
       sfd.FileName = (string.IsNullOrWhiteSpace(textChordName.Text) ? "guitar-grid" : textChordName.Text) + ".svg";
       if (sfd.ShowDialog() != DialogResult.OK) return;
-      // simple SVG writer: reuse layout and output minimal SVG
+
       var layout = ComputeLayout();
       var area = layout.area;
       var stringYs = layout.stringYs;
       var fretXs = layout.fretXs;
-      using var sw = new StreamWriter(sfd.FileName);
-      sw.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-      sw.WriteLine($"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{panelGrid.Width}\" height=\"{panelGrid.Height}\">\\n");
-      // frets and strings
-      for (int f = 0; f < fretXs.Length; f++)
-      {
-        int x = fretXs[f];
-        sw.WriteLine($"<line x1=\"{x}\" y1=\"{area.Top}\" x2=\"{x}\" y2=\"{area.Bottom}\" stroke=\"#000\" />");
-      }
-      for (int s = 0; s < stringYs.Length; s++)
-      {
-        int y = stringYs[s].Y;
-        sw.WriteLine($"<line x1=\"{fretXs[0]}\" y1=\"{y}\" x2=\"{fretXs[fretXs.Length - 1]}\" y2=\"{y}\" stroke=\"#000\" />");
-      }
-      sw.WriteLine("</svg>");
+
+      // convert stringYs array to ints
+      int[] sYs = stringYs.Select(p => p.Y).ToArray();
+
+      // create styled svg (include header area so output tall enough)
+      var svg = StyledSvgExporter.CreateStyledSvgGrid(
+          panelGrid.Width + 160,             // add room for header and left label in SVG width
+          panelGrid.Height + 140,            // add header + margins to SVG height
+          textChordName.Text,
+          "120 bpm",
+          "A",
+          "4/4",
+          tuning,
+          stringFrets,
+          stringFingers,
+          fretXs,
+          sYs,
+          barreFretIndex,
+          barreStartStringIndex,
+          barreEndStringIndex,
+          repeatLeft: true,
+          repeatRight: true);
+
+      File.WriteAllText(sfd.FileName, svg);
       MessageBox.Show("SVG exported to " + sfd.FileName);
     }
 
