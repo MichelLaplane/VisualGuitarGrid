@@ -149,7 +149,7 @@ namespace VisualGuitarGrid
             // btnExportHiRes
             // 
             btnExportHiRes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExportHiRes.Location = new Point(1011, 569);
+            btnExportHiRes.Location = new Point(825, 608);
             btnExportHiRes.Name = "btnExportHiRes";
             btnExportHiRes.Size = new Size(143, 34);
             btnExportHiRes.TabIndex = 6;
@@ -303,10 +303,11 @@ namespace VisualGuitarGrid
             // 
             // btnApplyTemplate
             // 
-            btnApplyTemplate.Location = new Point(700, 44);
+            btnApplyTemplate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnApplyTemplate.Location = new Point(1011, 569);
             btnApplyTemplate.Name = "btnApplyTemplate";
-            btnApplyTemplate.Size = new Size(80, 34);
-            btnApplyTemplate.TabIndex = 0;
+            btnApplyTemplate.Size = new Size(143, 34);
+            btnApplyTemplate.TabIndex = 6;
             btnApplyTemplate.Text = "Apply Template";
             btnApplyTemplate.Click += btnApplyTemplate_Click;
             // 
@@ -393,6 +394,7 @@ namespace VisualGuitarGrid
             Controls.Add(btnSavePreset);
             Controls.Add(btnLoadPreset);
             Controls.Add(btnPresetLibrary);
+            Controls.Add(btnApplyTemplate);
             Name = "MainForm";
             Text = "Visual Guitar Grid";
             ((System.ComponentModel.ISupportInitialize)numericStrings).EndInit();
