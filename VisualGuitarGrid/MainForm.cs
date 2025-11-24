@@ -2,7 +2,6 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace VisualGuitarGrid
 {
     public partial class MainForm : Form
@@ -187,12 +186,10 @@ namespace VisualGuitarGrid
             var g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             g.Clear(Color.White);
-
             var layout = ComputeLayout();
             var area = layout.area;
             var stringYs = layout.stringYs;
             var fretXs = layout.fretXs;
-
             using var penString = new Pen(Color.Black, 2);
             using var penFret = new Pen(Color.Gray, 1);
 
@@ -241,7 +238,6 @@ namespace VisualGuitarGrid
                 int state = (s < stringFrets.Length) ? stringFrets[s] : -1;
                 int finger = (s < stringFingers.Length) ? stringFingers[s] : 0;
                 int y = stringYs[s].Y;
-
                 if (state == -2)
                 {
                     // muted X above nut
@@ -280,6 +276,12 @@ namespace VisualGuitarGrid
                 var sz = g.MeasureString(t, fontTitle);
                 g.DrawString(t, fontTitle, Brushes.Black, panelGrid.Width / 2 - sz.Width / 2, 2);
             }
+        }
+
+        private void btnChordGrid_Click(object sender, EventArgs e)
+        {
+            var dlg = new ChordGridForm();
+            dlg.ShowDialog(this);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Windows.Forms;
-
 namespace VisualGuitarGrid
 {
     partial class MainForm
@@ -18,6 +17,7 @@ namespace VisualGuitarGrid
         private NumericUpDown numericFinger;
         private Label label3;
         private TextBox textChordName;
+        private Button btnChordGrid;
 
         protected override void Dispose(bool disposing)
         {
@@ -43,9 +43,10 @@ namespace VisualGuitarGrid
             this.numericFinger = new NumericUpDown();
             this.label3 = new Label();
             this.textChordName = new TextBox();
+            this.btnChordGrid = new Button();
 
             ((System.ComponentModel.ISupportInitialize)(this.numericStrings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFinger)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,6 +146,14 @@ namespace VisualGuitarGrid
             this.textChordName.Name = "textChordName";
             this.textChordName.Size = new System.Drawing.Size(300, 23);
             this.textChordName.PlaceholderText = "Chord name (optional)";
+            // 
+            // btnChordGrid
+            // 
+            this.btnChordGrid.Location = new System.Drawing.Point(288, 10);
+            this.btnChordGrid.Name = "btnChordGrid";
+            this.btnChordGrid.Size = new System.Drawing.Size(100, 26);
+            this.btnChordGrid.Text = "Open Chord Grid";
+            this.btnChordGrid.Click += new EventHandler(this.btnChordGrid_Click);
 
             // 
             // MainForm
@@ -162,6 +171,7 @@ namespace VisualGuitarGrid
             this.Controls.Add(this.numericFinger);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textChordName);
+            this.Controls.Add(this.btnChordGrid);
             this.Name = "MainForm";
             this.Text = "Visual Guitar Grid";
 
