@@ -29,9 +29,11 @@ namespace VisualGuitarGrid
         private Button btnSavePreset;
         private Button btnLoadPreset;
         private Button btnPresetLibrary;
+        private Button btnApplyTemplate;
+        private System.Windows.Forms.ComboBox comboTemplate;
 
-        // new controls
-        private TextBox textTempo;
+    // new controls
+    private TextBox textTempo;
         private TextBox textTimeSignature;
         private TextBox textSectionLabel;
         private CheckBox chkRepeatLeft;
@@ -48,315 +50,359 @@ namespace VisualGuitarGrid
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panelGrid = new Panel();
-            this.numericStrings = new NumericUpDown();
-            this.numericFrets = new NumericUpDown();
-            this.btnUpdate = new Button();
-            this.btnExport = new Button();
-            this.btnExportSvg = new Button();
-            this.btnExportHiRes = new Button();
-            this.btnClear = new Button();
-            this.textTuning = new TextBox();
-            this.label1 = new Label();
-            this.label2 = new Label();
-            this.numericFinger = new NumericUpDown();
-            this.label3 = new Label();
-            this.textChordName = new TextBox();
-            this.btnChordGrid = new Button();
-            this.chkReverseStrings = new CheckBox();
-            this.numericBarreFret = new NumericUpDown();
-            this.numericBarreStartString = new NumericUpDown();
-            this.numericBarreEndString = new NumericUpDown();
-            this.btnApplyBarre = new Button();
-            this.btnSavePreset = new Button();
-            this.btnLoadPreset = new Button();
-            this.btnPresetLibrary = new Button();
-
-            this.textTempo = new TextBox();
-            this.textTimeSignature = new TextBox();
-            this.textSectionLabel = new TextBox();
-            this.chkRepeatLeft = new CheckBox();
-            this.chkRepeatRight = new CheckBox();
-
-            ((System.ComponentModel.ISupportInitialize)(this.numericStrings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFinger)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreFret)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreStartString)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreEndString)).BeginInit();
-            this.SuspendLayout();
+            panelGrid = new Panel();
+            numericStrings = new NumericUpDown();
+            numericFrets = new NumericUpDown();
+            btnUpdate = new Button();
+            btnExport = new Button();
+            btnExportSvg = new Button();
+            btnExportHiRes = new Button();
+            btnClear = new Button();
+            textTuning = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            numericFinger = new NumericUpDown();
+            label3 = new Label();
+            textChordName = new TextBox();
+            btnChordGrid = new Button();
+            chkReverseStrings = new CheckBox();
+            numericBarreFret = new NumericUpDown();
+            numericBarreStartString = new NumericUpDown();
+            numericBarreEndString = new NumericUpDown();
+            btnApplyBarre = new Button();
+            btnSavePreset = new Button();
+            btnLoadPreset = new Button();
+            btnPresetLibrary = new Button();
+            btnApplyTemplate = new Button();
+            textTempo = new TextBox();
+            textTimeSignature = new TextBox();
+            textSectionLabel = new TextBox();
+            chkRepeatLeft = new CheckBox();
+            chkRepeatRight = new CheckBox();
+            comboTemplate = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)numericStrings).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericFrets).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericFinger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreFret).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreStartString).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreEndString).BeginInit();
+            SuspendLayout();
             // 
             // panelGrid
             // 
-            this.panelGrid.Anchor = ((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left) | AnchorStyles.Right;
-            this.panelGrid.BackColor = System.Drawing.Color.White;
-            this.panelGrid.Location = new System.Drawing.Point(12, 98);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(960, 440);
-            this.panelGrid.TabIndex = 0;
+            panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelGrid.BackColor = Color.White;
+            panelGrid.Location = new Point(12, 83);
+            panelGrid.Name = "panelGrid";
+            panelGrid.Size = new Size(1412, 475);
+            panelGrid.TabIndex = 0;
             // 
             // numericStrings
             // 
-            this.numericStrings.Location = new System.Drawing.Point(12, 12);
-            this.numericStrings.Minimum = 1;
-            this.numericStrings.Maximum = 12;
-            this.numericStrings.Value = 6;
-            this.numericStrings.Name = "numericStrings";
-            this.numericStrings.Size = new System.Drawing.Size(50, 23);
+            numericStrings.Location = new Point(12, 12);
+            numericStrings.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numericStrings.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericStrings.Name = "numericStrings";
+            numericStrings.Size = new Size(50, 31);
+            numericStrings.TabIndex = 1;
+            numericStrings.Value = new decimal(new int[] { 6, 0, 0, 0 });
             // 
             // numericFrets
             // 
-            this.numericFrets.Location = new System.Drawing.Point(140, 12);
-            this.numericFrets.Minimum = 1;
-            this.numericFrets.Maximum = 24;
-            this.numericFrets.Value = 12;
-            this.numericFrets.Name = "numericFrets";
-            this.numericFrets.Size = new System.Drawing.Size(50, 23);
+            numericFrets.Location = new Point(140, 12);
+            numericFrets.Maximum = new decimal(new int[] { 24, 0, 0, 0 });
+            numericFrets.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericFrets.Name = "numericFrets";
+            numericFrets.Size = new Size(50, 31);
+            numericFrets.TabIndex = 2;
+            numericFrets.Value = new decimal(new int[] { 12, 0, 0, 0 });
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(200, 10);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(80, 26);
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.Click += new EventHandler(this.btnUpdate_Click);
+            btnUpdate.Location = new Point(200, 10);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(92, 34);
+            btnUpdate.TabIndex = 3;
+            btnUpdate.Text = "Update";
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnExport
             // 
-            this.btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnExport.Location = new System.Drawing.Point(880, 12);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(92, 26);
-            this.btnExport.Text = "Export PNG";
-            this.btnExport.Click += new EventHandler(this.btnExport_Click);
+            btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExport.Location = new Point(1299, 568);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(125, 34);
+            btnExport.TabIndex = 4;
+            btnExport.Text = "Export PNG";
+            btnExport.Click += btnExport_Click;
             // 
             // btnExportSvg
             // 
-            this.btnExportSvg.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnExportSvg.Location = new System.Drawing.Point(776, 12);
-            this.btnExportSvg.Name = "btnExportSvg";
-            this.btnExportSvg.Size = new System.Drawing.Size(92, 26);
-            this.btnExportSvg.Text = "Export SVG";
-            this.btnExportSvg.Click += new EventHandler(this.btnExportSvg_Click);
+            btnExportSvg.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportSvg.Location = new Point(1160, 569);
+            btnExportSvg.Name = "btnExportSvg";
+            btnExportSvg.Size = new Size(133, 34);
+            btnExportSvg.TabIndex = 5;
+            btnExportSvg.Text = "Export SVG";
+            btnExportSvg.Click += btnExportSvg_Click;
             // 
             // btnExportHiRes
             // 
-            this.btnExportHiRes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnExportHiRes.Location = new System.Drawing.Point(672, 12);
-            this.btnExportHiRes.Name = "btnExportHiRes";
-            this.btnExportHiRes.Size = new System.Drawing.Size(92, 26);
-            this.btnExportHiRes.Text = "Export HiRes";
-            this.btnExportHiRes.Click += new EventHandler(this.btnExportHiRes_Click);
+            btnExportHiRes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportHiRes.Location = new Point(1011, 569);
+            btnExportHiRes.Name = "btnExportHiRes";
+            btnExportHiRes.Size = new Size(143, 34);
+            btnExportHiRes.TabIndex = 6;
+            btnExportHiRes.Text = "Export HiRes";
+            btnExportHiRes.Click += btnExportHiRes_Click;
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnClear.Location = new System.Drawing.Point(984, 12);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(76, 26);
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new EventHandler(this.btnClear_Click);
+            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClear.Location = new Point(1329, 12);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(95, 34);
+            btnClear.TabIndex = 7;
+            btnClear.Text = "Clear";
+            btnClear.Click += btnClear_Click;
             // 
             // textTuning
             // 
-            this.textTuning.Location = new System.Drawing.Point(320, 12);
-            this.textTuning.Name = "textTuning";
-            this.textTuning.Size = new System.Drawing.Size(220, 23);
-            this.textTuning.Text = "E2 A2 D3 G3 B3 E4";
+            textTuning.Location = new Point(344, 12);
+            textTuning.Name = "textTuning";
+            textTuning.Size = new Size(220, 31);
+            textTuning.TabIndex = 8;
+            textTuning.Text = "E2 A2 D3 G3 B3 E4";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 16);
-            this.label1.Name = "label1";
-            this.label1.Text = "Strings";
+            label1.AutoSize = true;
+            label1.Location = new Point(68, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 25);
+            label1.TabIndex = 9;
+            label1.Text = "Strings";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 16);
-            this.label2.Name = "label2";
-            this.label2.Text = "Frets";
+            label2.AutoSize = true;
+            label2.Location = new Point(196, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 25);
+            label2.TabIndex = 10;
+            label2.Text = "Frets";
             // 
             // numericFinger
             // 
-            this.numericFinger.Location = new System.Drawing.Point(508, 12);
-            this.numericFinger.Minimum = 0;
-            this.numericFinger.Maximum = 4;
-            this.numericFinger.Value = 1;
-            this.numericFinger.Name = "numericFinger";
-            this.numericFinger.Size = new System.Drawing.Size(40, 23);
+            numericFinger.Location = new Point(298, 11);
+            numericFinger.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numericFinger.Name = "numericFinger";
+            numericFinger.Size = new Size(40, 31);
+            numericFinger.TabIndex = 11;
+            numericFinger.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(558, 16);
-            this.label3.Name = "label3";
-            this.label3.Text = "(Shift+Click open, Ctrl+Click mute)";
-            // 
-            // textTempo
-            // 
-            this.textTempo.Location = new System.Drawing.Point(12, 46);
-            this.textTempo.Name = "textTempo";
-            this.textTempo.Size = new System.Drawing.Size(120, 23);
-            this.textTempo.Text = "120 bpm";
-            // 
-            // textTimeSignature
-            // 
-            this.textTimeSignature.Location = new System.Drawing.Point(140, 46);
-            this.textTimeSignature.Name = "textTimeSignature";
-            this.textTimeSignature.Size = new System.Drawing.Size(80, 23);
-            this.textTimeSignature.Text = "4/4";
-            // 
-            // textSectionLabel
-            // 
-            this.textSectionLabel.Location = new System.Drawing.Point(232, 46);
-            this.textSectionLabel.Name = "textSectionLabel";
-            this.textSectionLabel.Size = new System.Drawing.Size(60, 23);
-            this.textSectionLabel.Text = "A";
-            // 
-            // chkRepeatLeft
-            // 
-            this.chkRepeatLeft.Location = new System.Drawing.Point(320, 46);
-            this.chkRepeatLeft.Name = "chkRepeatLeft";
-            this.chkRepeatLeft.Size = new System.Drawing.Size(100, 23);
-            this.chkRepeatLeft.Text = "Repeat Left";
-            this.chkRepeatLeft.Checked = true;
-            // 
-            // chkRepeatRight
-            // 
-            this.chkRepeatRight.Location = new System.Drawing.Point(428, 46);
-            this.chkRepeatRight.Name = "chkRepeatRight";
-            this.chkRepeatRight.Size = new System.Drawing.Size(100, 23);
-            this.chkRepeatRight.Text = "Repeat Right";
-            this.chkRepeatRight.Checked = true;
+            label3.AutoSize = true;
+            label3.Location = new Point(892, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(282, 25);
+            label3.TabIndex = 12;
+            label3.Text = "(Shift+Click open, Ctrl+Click mute)";
             // 
             // textChordName
             // 
-            this.textChordName.Location = new System.Drawing.Point(12, 548);
-            this.textChordName.Name = "textChordName";
-            this.textChordName.Size = new System.Drawing.Size(300, 23);
-            this.textChordName.PlaceholderText = "Chord name (optional)";
+            textChordName.Location = new Point(12, 605);
+            textChordName.Name = "textChordName";
+            textChordName.PlaceholderText = "Chord name (optional)";
+            textChordName.Size = new Size(300, 31);
+            textChordName.TabIndex = 19;
             // 
             // btnChordGrid
             // 
-            this.btnChordGrid.Location = new System.Drawing.Point(288, 10);
-            this.btnChordGrid.Name = "btnChordGrid";
-            this.btnChordGrid.Size = new System.Drawing.Size(100, 26);
-            this.btnChordGrid.Text = "Open Chord Grid";
-            this.btnChordGrid.Click += new EventHandler(this.btnChordGrid_Click);
+            btnChordGrid.Location = new Point(825, 568);
+            btnChordGrid.Name = "btnChordGrid";
+            btnChordGrid.Size = new Size(165, 34);
+            btnChordGrid.TabIndex = 20;
+            btnChordGrid.Text = "Open Chord Grid";
+            btnChordGrid.Click += btnChordGrid_Click;
             // 
             // chkReverseStrings
             // 
-            this.chkReverseStrings.Location = new System.Drawing.Point(552, 40);
-            this.chkReverseStrings.Name = "chkReverseStrings";
-            this.chkReverseStrings.Size = new System.Drawing.Size(150, 22);
-            this.chkReverseStrings.Text = "Reverse string order";
-            this.chkReverseStrings.CheckedChanged += new EventHandler(this.chkReverseStrings_CheckedChanged);
+            chkReverseStrings.Location = new Point(570, 12);
+            chkReverseStrings.Name = "chkReverseStrings";
+            chkReverseStrings.Size = new Size(150, 34);
+            chkReverseStrings.TabIndex = 21;
+            chkReverseStrings.Text = "Reverse string order";
+            chkReverseStrings.CheckedChanged += chkReverseStrings_CheckedChanged;
             // 
             // numericBarreFret
             // 
-            this.numericBarreFret.Location = new System.Drawing.Point(12, 520);
-            this.numericBarreFret.Minimum = 0;
-            this.numericBarreFret.Maximum = 24;
-            this.numericBarreFret.Value = 1;
-            this.numericBarreFret.Name = "numericBarreFret";
-            this.numericBarreFret.Size = new System.Drawing.Size(60, 23);
+            numericBarreFret.Location = new Point(12, 568);
+            numericBarreFret.Maximum = new decimal(new int[] { 24, 0, 0, 0 });
+            numericBarreFret.Name = "numericBarreFret";
+            numericBarreFret.Size = new Size(60, 31);
+            numericBarreFret.TabIndex = 22;
+            numericBarreFret.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericBarreStartString
             // 
-            this.numericBarreStartString.Location = new System.Drawing.Point(80, 520);
-            this.numericBarreStartString.Minimum = 1;
-            this.numericBarreStartString.Maximum = 12;
-            this.numericBarreStartString.Value = 1;
-            this.numericBarreStartString.Name = "numericBarreStartString";
-            this.numericBarreStartString.Size = new System.Drawing.Size(60, 23);
+            numericBarreStartString.Location = new Point(80, 568);
+            numericBarreStartString.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numericBarreStartString.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericBarreStartString.Name = "numericBarreStartString";
+            numericBarreStartString.Size = new Size(60, 31);
+            numericBarreStartString.TabIndex = 23;
+            numericBarreStartString.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericBarreEndString
             // 
-            this.numericBarreEndString.Location = new System.Drawing.Point(148, 520);
-            this.numericBarreEndString.Minimum = 1;
-            this.numericBarreEndString.Maximum = 12;
-            this.numericBarreEndString.Value = 6;
-            this.numericBarreEndString.Name = "numericBarreEndString";
-            this.numericBarreEndString.Size = new System.Drawing.Size(60, 23);
+            numericBarreEndString.Location = new Point(148, 568);
+            numericBarreEndString.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numericBarreEndString.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericBarreEndString.Name = "numericBarreEndString";
+            numericBarreEndString.Size = new Size(60, 31);
+            numericBarreEndString.TabIndex = 24;
+            numericBarreEndString.Value = new decimal(new int[] { 6, 0, 0, 0 });
             // 
             // btnApplyBarre
             // 
-            this.btnApplyBarre.Location = new System.Drawing.Point(216, 516);
-            this.btnApplyBarre.Name = "btnApplyBarre";
-            this.btnApplyBarre.Size = new System.Drawing.Size(96, 28);
-            this.btnApplyBarre.Text = "Apply Barre";
-            this.btnApplyBarre.Click += new EventHandler(this.btnApplyBarre_Click);
+            btnApplyBarre.Location = new Point(216, 569);
+            btnApplyBarre.Name = "btnApplyBarre";
+            btnApplyBarre.Size = new Size(151, 34);
+            btnApplyBarre.TabIndex = 25;
+            btnApplyBarre.Text = "Apply Barre";
+            btnApplyBarre.Click += btnApplyBarre_Click;
             // 
             // btnSavePreset
             // 
-            this.btnSavePreset.Location = new System.Drawing.Point(320, 516);
-            this.btnSavePreset.Name = "btnSavePreset";
-            this.btnSavePreset.Size = new System.Drawing.Size(96, 28);
-            this.btnSavePreset.Text = "Save Preset";
-            this.btnSavePreset.Click += new EventHandler(this.btnSavePreset_Click);
+            btnSavePreset.Location = new Point(373, 569);
+            btnSavePreset.Name = "btnSavePreset";
+            btnSavePreset.Size = new Size(129, 34);
+            btnSavePreset.TabIndex = 26;
+            btnSavePreset.Text = "Save Preset";
+            btnSavePreset.Click += btnSavePreset_Click;
             // 
             // btnLoadPreset
             // 
-            this.btnLoadPreset.Location = new System.Drawing.Point(424, 516);
-            this.btnLoadPreset.Name = "btnLoadPreset";
-            this.btnLoadPreset.Size = new System.Drawing.Size(96, 28);
-            this.btnLoadPreset.Text = "Load Preset";
-            this.btnLoadPreset.Click += new EventHandler(this.btnLoadPreset_Click);
+            btnLoadPreset.Location = new Point(508, 569);
+            btnLoadPreset.Name = "btnLoadPreset";
+            btnLoadPreset.Size = new Size(124, 34);
+            btnLoadPreset.TabIndex = 27;
+            btnLoadPreset.Text = "Load Preset";
+            btnLoadPreset.Click += btnLoadPreset_Click;
             // 
             // btnPresetLibrary
             // 
-            this.btnPresetLibrary.Location = new System.Drawing.Point(528, 516);
-            this.btnPresetLibrary.Name = "btnPresetLibrary";
-            this.btnPresetLibrary.Size = new System.Drawing.Size(120, 28);
-            this.btnPresetLibrary.Text = "Preset Library...";
-            this.btnPresetLibrary.Click += new EventHandler(this.btnPresetLibrary_Click);
-
+            btnPresetLibrary.Location = new Point(638, 569);
+            btnPresetLibrary.Name = "btnPresetLibrary";
+            btnPresetLibrary.Size = new Size(172, 34);
+            btnPresetLibrary.TabIndex = 28;
+            btnPresetLibrary.Text = "Preset Library...";
+            btnPresetLibrary.Click += btnPresetLibrary_Click;
+            // 
+            // btnApplyTemplate
+            // 
+            btnApplyTemplate.Location = new Point(700, 44);
+            btnApplyTemplate.Name = "btnApplyTemplate";
+            btnApplyTemplate.Size = new Size(80, 34);
+            btnApplyTemplate.TabIndex = 0;
+            btnApplyTemplate.Text = "Apply Template";
+            btnApplyTemplate.Click += btnApplyTemplate_Click;
+            // 
+            // textTempo
+            // 
+            textTempo.Location = new Point(12, 46);
+            textTempo.Name = "textTempo";
+            textTempo.Size = new Size(120, 31);
+            textTempo.TabIndex = 13;
+            textTempo.Text = "120 bpm";
+            // 
+            // textTimeSignature
+            // 
+            textTimeSignature.Location = new Point(140, 46);
+            textTimeSignature.Name = "textTimeSignature";
+            textTimeSignature.Size = new Size(80, 31);
+            textTimeSignature.TabIndex = 14;
+            textTimeSignature.Text = "4/4";
+            // 
+            // textSectionLabel
+            // 
+            textSectionLabel.Location = new Point(232, 46);
+            textSectionLabel.Name = "textSectionLabel";
+            textSectionLabel.Size = new Size(60, 31);
+            textSectionLabel.TabIndex = 15;
+            textSectionLabel.Text = "A";
+            // 
+            // chkRepeatLeft
+            // 
+            chkRepeatLeft.Checked = true;
+            chkRepeatLeft.CheckState = CheckState.Checked;
+            chkRepeatLeft.Location = new Point(320, 46);
+            chkRepeatLeft.Name = "chkRepeatLeft";
+            chkRepeatLeft.Size = new Size(129, 34);
+            chkRepeatLeft.TabIndex = 16;
+            chkRepeatLeft.Text = "Repeat Left";
+            // 
+            // chkRepeatRight
+            // 
+            chkRepeatRight.Checked = true;
+            chkRepeatRight.CheckState = CheckState.Checked;
+            chkRepeatRight.Location = new Point(455, 43);
+            chkRepeatRight.Name = "chkRepeatRight";
+            chkRepeatRight.Size = new Size(152, 34);
+            chkRepeatRight.TabIndex = 17;
+            chkRepeatRight.Text = "Repeat Right";
+            // 
+            // comboTemplate
+            // 
+            comboTemplate.Location = new Point(726, 9);
+            comboTemplate.Name = "comboTemplate";
+            comboTemplate.Size = new Size(160, 33);
+            comboTemplate.TabIndex = 18;
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(1064, 581);
-            this.Controls.Add(this.panelGrid);
-            this.Controls.Add(this.numericStrings);
-            this.Controls.Add(this.numericFrets);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnExportSvg);
-            this.Controls.Add(this.btnExportHiRes);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.textTuning);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericFinger);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textTempo);
-            this.Controls.Add(this.textTimeSignature);
-            this.Controls.Add(this.textSectionLabel);
-            this.Controls.Add(this.chkRepeatLeft);
-            this.Controls.Add(this.chkRepeatRight);
-            this.Controls.Add(this.textChordName);
-            this.Controls.Add(this.btnChordGrid);
-            this.Controls.Add(this.chkReverseStrings);
-            this.Controls.Add(this.numericBarreFret);
-            this.Controls.Add(this.numericBarreStartString);
-            this.Controls.Add(this.numericBarreEndString);
-            this.Controls.Add(this.btnApplyBarre);
-            this.Controls.Add(this.btnSavePreset);
-            this.Controls.Add(this.btnLoadPreset);
-            this.Controls.Add(this.btnPresetLibrary);
-            this.Name = "MainForm";
-            this.Text = "Visual Guitar Grid";
-
-            ((System.ComponentModel.ISupportInitialize)(this.numericStrings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFinger)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreFret)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreStartString)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBarreEndString)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new Size(1436, 647);
+            Controls.Add(panelGrid);
+            Controls.Add(numericStrings);
+            Controls.Add(numericFrets);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnExport);
+            Controls.Add(btnExportSvg);
+            Controls.Add(btnExportHiRes);
+            Controls.Add(btnClear);
+            Controls.Add(textTuning);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(numericFinger);
+            Controls.Add(label3);
+            Controls.Add(textTempo);
+            Controls.Add(textTimeSignature);
+            Controls.Add(textSectionLabel);
+            Controls.Add(chkRepeatLeft);
+            Controls.Add(chkRepeatRight);
+            Controls.Add(comboTemplate);
+            Controls.Add(textChordName);
+            Controls.Add(btnChordGrid);
+            Controls.Add(chkReverseStrings);
+            Controls.Add(numericBarreFret);
+            Controls.Add(numericBarreStartString);
+            Controls.Add(numericBarreEndString);
+            Controls.Add(btnApplyBarre);
+            Controls.Add(btnSavePreset);
+            Controls.Add(btnLoadPreset);
+            Controls.Add(btnPresetLibrary);
+            Name = "MainForm";
+            Text = "Visual Guitar Grid";
+            ((System.ComponentModel.ISupportInitialize)numericStrings).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericFrets).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericFinger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreFret).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreStartString).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericBarreEndString).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
