@@ -527,14 +527,21 @@ namespace VisualGuitarGrid
       // convert stringYs array to ints
       int[] sYs = stringYs.Select(p => p.Y).ToArray();
 
+      // Read UI export fields (with simple fallbacks)
+      string tempo = string.IsNullOrWhiteSpace(textTempo?.Text) ? "120 bpm" : textTempo.Text.Trim();
+      string timeSig = string.IsNullOrWhiteSpace(textTimeSignature?.Text) ? "4/4" : textTimeSignature.Text.Trim();
+      string section = string.IsNullOrWhiteSpace(textSectionLabel?.Text) ? "A" : textSectionLabel.Text.Trim();
+      bool repeatLeft = chkRepeatLeft?.Checked ?? false;
+      bool repeatRight = chkRepeatRight?.Checked ?? false;
+
       // create styled svg (include header area so output tall enough)
       var svg = StyledSvgExporter.CreateStyledSvgGrid(
-          panelGrid.Width + 160,             // add room for header and left label in SVG width
-          panelGrid.Height + 140,            // add header + margins to SVG height
+          panelGrid.Width + 160,             // room for header/left label columns in SVG width
+          panelGrid.Height + 140,            // room for header + margins in SVG height
           textChordName.Text,
-          "120 bpm",
-          "A",
-          "4/4",
+          tempo,
+          section,
+          timeSig,
           tuning,
           stringFrets,
           stringFingers,
@@ -543,13 +550,12 @@ namespace VisualGuitarGrid
           barreFretIndex,
           barreStartStringIndex,
           barreEndStringIndex,
-          repeatLeft: true,
-          repeatRight: true);
+          repeatLeft: repeatLeft,
+          repeatRight: repeatRight);
 
       File.WriteAllText(sfd.FileName, svg);
       MessageBox.Show("SVG exported to " + sfd.FileName);
     }
-
     private void btnExportHiRes_Click(object sender, EventArgs e)
     {
       using var sfd = new SaveFileDialog();
