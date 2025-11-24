@@ -14,3 +14,11 @@ Usage
 - Enter an optional chord name and export as PNG.
 
 This is a first version. Enhancements possible: barre chords, presets, SVG export, printing.
+
+Short story of what I did and why I implemented a small Windows Forms (.NET 8) application to draw and edit guitar chord grids (grilles d'accords) based on the Back2Guitar layout you referenced. The app supports configuring number of strings and frets, entering tuning, placing fretted notes, marking open (Shift+Click) and muted strings (right-click), adding a finger number, entering a chord name and exporting the diagram as a PNG. I prepared a Visual Studio solution and performed the initial commit to your repo’s main branch.
+
+How to run the project locally
+
+Clone the repository: git clone https://github.com/MichelLaplane/VisualGuitarGrid.git
+Open VisualGuitarGrid.sln in Visual Studio (you requested VS 2026 — the project targets net8.0-windows).
+Build and run the VisualGuitarGrid project.
