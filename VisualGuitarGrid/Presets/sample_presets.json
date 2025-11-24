@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "C",
+    "StringFrets": [-1,3,2,0,1,0],
+    "Fingers": [0,3,2,0,1,0],
+    "Tuning": "E2 A2 D3 G3 B3 E4"
+  },
+  {
+    "Name": "G",
+    "StringFrets": [3,2,0,0,0,3],
+    "Fingers": [2,1,0,0,0,3],
+    "Tuning": "E2 A2 D3 G3 B3 E4"
+  },
+  {
+    "Name": "D",
+    "StringFrets": [-1,-1,0,2,3,2],
+    "Fingers": [0,0,0,1,3,2],
+    "Tuning": "E2 A2 D3 G3 B3 E4"
+  },
+  {
+    "Name": "Em",
+    "StringFrets": [0,2,2,0,0,0],
+    "Fingers": [0,2,3,0,0,0],
+    "Tuning": "E2 A2 D3 G3 B3 E4"
+  },
+  {
+    "Name": "Am",
+    "StringFrets": [-1,0,2,2,1,0],
+    "Fingers": [0,0,2,3,1,0],
+    "Tuning": "E2 A2 D3 G3 B3 E4"
+  }
+]
