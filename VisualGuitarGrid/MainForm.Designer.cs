@@ -28,6 +28,7 @@ namespace VisualGuitarGrid
     private Button btnApplyBarre;
     private Button btnSavePreset;
     private Button btnLoadPreset;
+    private Button btnPresetLibrary;
 
     protected override void Dispose(bool disposing)
     {
@@ -62,6 +63,7 @@ namespace VisualGuitarGrid
             btnApplyBarre = new Button();
             btnSavePreset = new Button();
             btnLoadPreset = new Button();
+            btnPresetLibrary = new Button();
             ((System.ComponentModel.ISupportInitialize)numericStrings).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericFrets).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericFinger).BeginInit();
@@ -74,9 +76,9 @@ namespace VisualGuitarGrid
             // 
             panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelGrid.BackColor = Color.White;
-            panelGrid.Location = new Point(12, 50);
+            panelGrid.Location = new Point(12, 58);
             panelGrid.Name = "panelGrid";
-            panelGrid.Size = new Size(1310, 460);
+            panelGrid.Size = new Size(1278, 432);
             panelGrid.TabIndex = 0;
             // 
             // numericStrings
@@ -111,9 +113,9 @@ namespace VisualGuitarGrid
             // btnExport
             // 
             btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExport.Location = new Point(1066, 517);
+            btnExport.Location = new Point(1113, 513);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(124, 34);
+            btnExport.Size = new Size(133, 34);
             btnExport.TabIndex = 4;
             btnExport.Text = "Export PNG";
             btnExport.Click += btnExport_Click;
@@ -121,9 +123,9 @@ namespace VisualGuitarGrid
             // btnExportSvg
             // 
             btnExportSvg.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExportSvg.Location = new Point(945, 520);
+            btnExportSvg.Location = new Point(982, 513);
             btnExportSvg.Name = "btnExportSvg";
-            btnExportSvg.Size = new Size(115, 34);
+            btnExportSvg.Size = new Size(125, 34);
             btnExportSvg.TabIndex = 5;
             btnExportSvg.Text = "Export SVG";
             btnExportSvg.Click += btnExportSvg_Click;
@@ -131,9 +133,9 @@ namespace VisualGuitarGrid
             // btnExportHiRes
             // 
             btnExportHiRes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExportHiRes.Location = new Point(810, 520);
+            btnExportHiRes.Location = new Point(838, 513);
             btnExportHiRes.Name = "btnExportHiRes";
-            btnExportHiRes.Size = new Size(129, 34);
+            btnExportHiRes.Size = new Size(138, 34);
             btnExportHiRes.TabIndex = 6;
             btnExportHiRes.Text = "Export HiRes";
             btnExportHiRes.Click += btnExportHiRes_Click;
@@ -141,7 +143,7 @@ namespace VisualGuitarGrid
             // btnClear
             // 
             btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClear.Location = new Point(1246, 6);
+            btnClear.Location = new Point(1214, 12);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(76, 34);
             btnClear.TabIndex = 7;
@@ -150,7 +152,7 @@ namespace VisualGuitarGrid
             // 
             // textTuning
             // 
-            textTuning.Location = new Point(286, 13);
+            textTuning.Location = new Point(320, 12);
             textTuning.Name = "textTuning";
             textTuning.Size = new Size(220, 31);
             textTuning.TabIndex = 8;
@@ -186,7 +188,7 @@ namespace VisualGuitarGrid
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(710, 15);
+            label3.Location = new Point(721, 16);
             label3.Name = "label3";
             label3.Size = new Size(282, 25);
             label3.TabIndex = 12;
@@ -202,16 +204,16 @@ namespace VisualGuitarGrid
             // 
             // btnChordGrid
             // 
-            btnChordGrid.Location = new Point(1140, 9);
+            btnChordGrid.Location = new Point(1025, 11);
             btnChordGrid.Name = "btnChordGrid";
-            btnChordGrid.Size = new Size(100, 34);
+            btnChordGrid.Size = new Size(183, 34);
             btnChordGrid.TabIndex = 14;
             btnChordGrid.Text = "Open Chord Grid";
             btnChordGrid.Click += btnChordGrid_Click;
             // 
             // chkReverseStrings
             // 
-            chkReverseStrings.Location = new Point(554, 7);
+            chkReverseStrings.Location = new Point(565, 13);
             chkReverseStrings.Name = "chkReverseStrings";
             chkReverseStrings.Size = new Size(150, 34);
             chkReverseStrings.TabIndex = 15;
@@ -251,32 +253,41 @@ namespace VisualGuitarGrid
             // 
             btnApplyBarre.Location = new Point(216, 516);
             btnApplyBarre.Name = "btnApplyBarre";
-            btnApplyBarre.Size = new Size(96, 34);
+            btnApplyBarre.Size = new Size(130, 34);
             btnApplyBarre.TabIndex = 19;
             btnApplyBarre.Text = "Apply Barre";
             btnApplyBarre.Click += btnApplyBarre_Click;
             // 
             // btnSavePreset
             // 
-            btnSavePreset.Location = new Point(320, 516);
+            btnSavePreset.Location = new Point(352, 513);
             btnSavePreset.Name = "btnSavePreset";
-            btnSavePreset.Size = new Size(96, 34);
+            btnSavePreset.Size = new Size(140, 34);
             btnSavePreset.TabIndex = 20;
             btnSavePreset.Text = "Save Preset";
             btnSavePreset.Click += btnSavePreset_Click;
             // 
             // btnLoadPreset
             // 
-            btnLoadPreset.Location = new Point(424, 516);
+            btnLoadPreset.Location = new Point(498, 513);
             btnLoadPreset.Name = "btnLoadPreset";
-            btnLoadPreset.Size = new Size(96, 34);
+            btnLoadPreset.Size = new Size(128, 34);
             btnLoadPreset.TabIndex = 21;
             btnLoadPreset.Text = "Load Preset";
             btnLoadPreset.Click += btnLoadPreset_Click;
             // 
+            // btnPresetLibrary
+            // 
+            btnPresetLibrary.Location = new Point(632, 513);
+            btnPresetLibrary.Name = "btnPresetLibrary";
+            btnPresetLibrary.Size = new Size(157, 34);
+            btnPresetLibrary.TabIndex = 22;
+            btnPresetLibrary.Text = "Preset Library...";
+            btnPresetLibrary.Click += btnPresetLibrary_Click;
+            // 
             // MainForm
             // 
-            ClientSize = new Size(1334, 598);
+            ClientSize = new Size(1382, 624);
             Controls.Add(panelGrid);
             Controls.Add(numericStrings);
             Controls.Add(numericFrets);
@@ -299,6 +310,7 @@ namespace VisualGuitarGrid
             Controls.Add(btnApplyBarre);
             Controls.Add(btnSavePreset);
             Controls.Add(btnLoadPreset);
+            Controls.Add(btnPresetLibrary);
             Name = "MainForm";
             Text = "Visual Guitar Grid";
             ((System.ComponentModel.ISupportInitialize)numericStrings).EndInit();

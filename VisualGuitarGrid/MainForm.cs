@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text.Json;
 using System.IO;
+using System.Collections.Generic;
+using VisualGuitarGrid.Preset;
 
 namespace VisualGuitarGrid
 {
@@ -454,6 +456,59 @@ namespace VisualGuitarGrid
       catch (Exception ex)
       {
         MessageBox.Show("Failed to load preset: " + ex.Message);
+      }
+    }
+
+    // New: open preset library (sample_presets.json fallback)
+    private void btnPresetLibrary_Click(object sender, EventArgs e)
+    {
+      string defaultPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Presets", "sample_presets.json");
+      List<ChordShape> presets = null;
+      if (File.Exists(defaultPath))
+      {
+        presets = ChordPresetManager.LoadLibrary(defaultPath);
+      }
+      else
+      {
+        using var ofd = new OpenFileDialog();
+        ofd.Filter = "Preset Library|*.json";
+        ofd.Title = "Open preset library";
+        if (ofd.ShowDialog() != DialogResult.OK) return;
+        presets = ChordPresetManager.LoadLibrary(ofd.FileName);
+      }
+
+      if (presets == null || presets.Count == 0)
+      {
+        MessageBox.Show("No presets found in library.");
+        return;
+      }
+
+      using var dlg = new PresetLibraryForm(presets);
+      if (dlg.ShowDialog(this) == DialogResult.OK)
+      {
+        var p = dlg.SelectedPreset;
+        if (p != null)
+        {
+          // apply frets and fingers (safe copy up to available strings)
+          int copyCount = Math.Min(stringFrets.Length, p.StringFrets?.Length ?? 0);
+          for (int i = 0; i < copyCount; i++) stringFrets[i] = p.StringFrets[i];
+          for (int i = copyCount; i < stringFrets.Length; i++) stringFrets[i] = -1;
+
+          int copyFingers = Math.Min(stringFingers.Length, p.Fingers?.Length ?? 0);
+          for (int i = 0; i < copyFingers; i++) stringFingers[i] = p.Fingers[i];
+          for (int i = copyFingers; i < stringFingers.Length; i++) stringFingers[i] = 0;
+
+          if (!string.IsNullOrWhiteSpace(p.Tuning))
+          {
+            textTuning.Text = p.Tuning;
+            ParseTuning();
+          }
+
+          if (!string.IsNullOrWhiteSpace(p.Name))
+            textChordName.Text = p.Name;
+
+          panelGrid.Invalidate();
+        }
       }
     }
 
