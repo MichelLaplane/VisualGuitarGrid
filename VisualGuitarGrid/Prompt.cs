@@ -16,7 +16,7 @@ namespace VisualGuitarGrid
             form.Text = caption ?? "Input";
             form.StartPosition = FormStartPosition.CenterParent;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.ClientSize = new Size(420, 150);
+            form.ClientSize = new Size(600, 150);
             form.MinimizeBox = false;
             form.MaximizeBox = false;
             form.ShowIcon = false;
@@ -46,7 +46,9 @@ namespace VisualGuitarGrid
                 DialogResult = DialogResult.OK,
                 Left = form.ClientSize.Width - 200,
                 Width = 80,
-                Top = textBox.Bottom + 12
+                Height = 34,
+              Top = textBox.Bottom + 12,
+              UseVisualStyleBackColor = true
             };
 
             var cancelButton = new Button()
@@ -55,7 +57,10 @@ namespace VisualGuitarGrid
                 DialogResult = DialogResult.Cancel,
                 Left = form.ClientSize.Width - 100,
                 Width = 80,
-                Top = textBox.Bottom + 12
+                Height = 34,
+              Top = textBox.Bottom + 12,
+              UseVisualStyleBackColor = true
+
             };
 
             form.Controls.Add(label);

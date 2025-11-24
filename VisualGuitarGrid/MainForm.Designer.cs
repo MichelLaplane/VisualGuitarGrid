@@ -30,156 +30,166 @@ namespace VisualGuitarGrid
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panelGrid = new Panel();
-            this.numericStrings = new NumericUpDown();
-            this.numericFrets = new NumericUpDown();
-            this.btnUpdate = new Button();
-            this.btnExport = new Button();
-            this.btnClear = new Button();
-            this.textTuning = new TextBox();
-            this.label1 = new Label();
-            this.label2 = new Label();
-            this.numericFinger = new NumericUpDown();
-            this.label3 = new Label();
-            this.textChordName = new TextBox();
-            this.btnChordGrid = new Button();
-
-            ((System.ComponentModel.ISupportInitialize)(this.numericStrings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFinger)).BeginInit();
-            this.SuspendLayout();
+            panelGrid = new Panel();
+            numericStrings = new NumericUpDown();
+            numericFrets = new NumericUpDown();
+            btnUpdate = new Button();
+            btnExport = new Button();
+            btnClear = new Button();
+            textTuning = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            numericFinger = new NumericUpDown();
+            label3 = new Label();
+            textChordName = new TextBox();
+            btnChordGrid = new Button();
+            ((System.ComponentModel.ISupportInitialize)numericStrings).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericFrets).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericFinger).BeginInit();
+            SuspendLayout();
             // 
             // panelGrid
             // 
-            this.panelGrid.Anchor = ((AnchorStyles.Top | AnchorStyles.Bottom) | AnchorStyles.Left) | AnchorStyles.Right;
-            this.panelGrid.BackColor = System.Drawing.Color.White;
-            this.panelGrid.Location = new System.Drawing.Point(12, 58);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(760, 380);
-            this.panelGrid.TabIndex = 0;
+            panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelGrid.BackColor = Color.White;
+            panelGrid.Location = new Point(12, 52);
+            panelGrid.Name = "panelGrid";
+            panelGrid.Size = new Size(1090, 384);
+            panelGrid.TabIndex = 0;
             // 
             // numericStrings
             // 
-            this.numericStrings.Location = new System.Drawing.Point(12, 12);
-            this.numericStrings.Minimum = 1;
-            this.numericStrings.Maximum = 12;
-            this.numericStrings.Value = 6;
-            this.numericStrings.Name = "numericStrings";
-            this.numericStrings.Size = new System.Drawing.Size(50, 23);
+            numericStrings.Location = new Point(12, 12);
+            numericStrings.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numericStrings.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericStrings.Name = "numericStrings";
+            numericStrings.Size = new Size(50, 31);
+            numericStrings.TabIndex = 1;
+            numericStrings.Value = new decimal(new int[] { 6, 0, 0, 0 });
             // 
             // numericFrets
             // 
-            this.numericFrets.Location = new System.Drawing.Point(140, 12);
-            this.numericFrets.Minimum = 1;
-            this.numericFrets.Maximum = 24;
-            this.numericFrets.Value = 12;
-            this.numericFrets.Name = "numericFrets";
-            this.numericFrets.Size = new System.Drawing.Size(50, 23);
+            numericFrets.Location = new Point(140, 12);
+            numericFrets.Maximum = new decimal(new int[] { 24, 0, 0, 0 });
+            numericFrets.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericFrets.Name = "numericFrets";
+            numericFrets.Size = new Size(50, 31);
+            numericFrets.TabIndex = 2;
+            numericFrets.Value = new decimal(new int[] { 12, 0, 0, 0 });
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(200, 10);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(80, 26);
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.Click += new EventHandler(this.btnUpdate_Click);
+            btnUpdate.Location = new Point(200, 10);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(80, 33);
+            btnUpdate.TabIndex = 3;
+            btnUpdate.Text = "Update";
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnExport
             // 
-            this.btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnExport.Location = new System.Drawing.Point(620, 10);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(70, 26);
-            this.btnExport.Text = "Export PNG";
-            this.btnExport.Click += new EventHandler(this.btnExport_Click);
+            btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExport.Location = new Point(915, 10);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(105, 36);
+            btnExport.TabIndex = 4;
+            btnExport.Text = "Export PNG";
+            btnExport.Click += btnExport_Click;
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            this.btnClear.Location = new System.Drawing.Point(696, 10);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(76, 26);
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new EventHandler(this.btnClear_Click);
+            btnClear.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClear.Location = new Point(1026, 10);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(76, 36);
+            btnClear.TabIndex = 5;
+            btnClear.Text = "Clear";
+            btnClear.Click += btnClear_Click;
             // 
             // textTuning
             // 
-            this.textTuning.Location = new System.Drawing.Point(320, 12);
-            this.textTuning.Name = "textTuning";
-            this.textTuning.Size = new System.Drawing.Size(180, 23);
-            this.textTuning.Text = "E A D G B E";
+            textTuning.Location = new Point(320, 12);
+            textTuning.Name = "textTuning";
+            textTuning.Size = new Size(180, 31);
+            textTuning.TabIndex = 6;
+            textTuning.Text = "E A D G B E";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 16);
-            this.label1.Name = "label1";
-            this.label1.Text = "Strings";
+            label1.AutoSize = true;
+            label1.Location = new Point(68, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 25);
+            label1.TabIndex = 7;
+            label1.Text = "Strings";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 16);
-            this.label2.Name = "label2";
-            this.label2.Text = "Frets";
+            label2.AutoSize = true;
+            label2.Location = new Point(196, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 25);
+            label2.TabIndex = 8;
+            label2.Text = "Frets";
             // 
             // numericFinger
             // 
-            this.numericFinger.Location = new System.Drawing.Point(508, 12);
-            this.numericFinger.Minimum = 0;
-            this.numericFinger.Maximum = 4;
-            this.numericFinger.Value = 1;
-            this.numericFinger.Name = "numericFinger";
-            this.numericFinger.Size = new System.Drawing.Size(40, 23);
+            numericFinger.Location = new Point(508, 12);
+            numericFinger.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numericFinger.Name = "numericFinger";
+            numericFinger.Size = new Size(40, 31);
+            numericFinger.TabIndex = 9;
+            numericFinger.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(558, 16);
-            this.label3.Name = "label3";
-            this.label3.Text = "(Shift+Click open, Right-click mute)";
+            label3.AutoSize = true;
+            label3.Location = new Point(558, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(289, 25);
+            label3.TabIndex = 10;
+            label3.Text = "(Shift+Click open, Right-click mute)";
             // 
             // textChordName
             // 
-            this.textChordName.Location = new System.Drawing.Point(12, 444);
-            this.textChordName.Name = "textChordName";
-            this.textChordName.Size = new System.Drawing.Size(300, 23);
-            this.textChordName.PlaceholderText = "Chord name (optional)";
+            textChordName.Location = new Point(12, 447);
+            textChordName.Name = "textChordName";
+            textChordName.PlaceholderText = "Chord name (optional)";
+            textChordName.Size = new Size(300, 31);
+            textChordName.TabIndex = 11;
             // 
             // btnChordGrid
             // 
-            this.btnChordGrid.Location = new System.Drawing.Point(288, 10);
-            this.btnChordGrid.Name = "btnChordGrid";
-            this.btnChordGrid.Size = new System.Drawing.Size(100, 26);
-            this.btnChordGrid.Text = "Open Chord Grid";
-            this.btnChordGrid.Click += new EventHandler(this.btnChordGrid_Click);
-
+            btnChordGrid.Location = new Point(508, 442);
+            btnChordGrid.Name = "btnChordGrid";
+            btnChordGrid.Size = new Size(220, 41);
+            btnChordGrid.TabIndex = 12;
+            btnChordGrid.Text = "Open Chord Grid";
+            btnChordGrid.Click += btnChordGrid_Click;
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(784, 481);
-            this.Controls.Add(this.panelGrid);
-            this.Controls.Add(this.numericStrings);
-            this.Controls.Add(this.numericFrets);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.textTuning);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericFinger);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textChordName);
-            this.Controls.Add(this.btnChordGrid);
-            this.Name = "MainForm";
-            this.Text = "Visual Guitar Grid";
-
-            ((System.ComponentModel.ISupportInitialize)(this.numericStrings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFrets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericFinger)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new Size(1114, 490);
+            Controls.Add(panelGrid);
+            Controls.Add(numericStrings);
+            Controls.Add(numericFrets);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnExport);
+            Controls.Add(btnClear);
+            Controls.Add(textTuning);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            Controls.Add(numericFinger);
+            Controls.Add(label3);
+            Controls.Add(textChordName);
+            Controls.Add(btnChordGrid);
+            Name = "MainForm";
+            Text = "Visual Guitar Grid";
+            ((System.ComponentModel.ISupportInitialize)numericStrings).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericFrets).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericFinger).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
